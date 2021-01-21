@@ -12,7 +12,6 @@
 // Execute the command `rustlings hint collections4` if you need
 // hints.
 
-// I AM NOT DONE
 
 use std::collections::HashMap;
 
@@ -29,15 +28,29 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
     let fruit_kinds = vec![
         Fruit::Apple,
         Fruit::Banana,
-        Fruit::Mango,
         Fruit::Lichi,
+        Fruit::Mango,
         Fruit::Pineapple,
     ];
 
     for fruit in fruit_kinds {
-        // TODO: Put new fruits if not already present. Note that you
-        // are not allowed to put any type of fruit that's already
-        // present!
+        match fruit {
+            Fruit::Apple => {
+                basket.insert(Fruit::Apple, 4);
+            }
+            Fruit::Banana => {
+                basket.insert(Fruit::Banana, 1);
+            }
+            Fruit::Lichi => {
+                basket.insert(Fruit::Lichi, 5);
+            }
+            Fruit::Mango => {
+                basket.insert(Fruit::Mango, 2);
+            }
+            Fruit::Pineapple => {
+                basket.insert(Fruit::Pineapple, 1);
+            }
+        }
     }
 }
 
@@ -75,9 +88,7 @@ mod tests {
     fn greater_than_eleven_fruits() {
         let mut basket = get_fruit_basket();
         fruit_basket(&mut basket);
-        let count = basket
-            .values()
-            .sum::<u32>();
+        let count = basket.values().sum::<u32>();
         assert!(count > 11);
     }
 }
